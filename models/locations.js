@@ -7,6 +7,6 @@ const locationSchema = mongoose.Schema({
   user_id: { type: String, required: true },
 });
 
-const User = mongoose.model("Location", locationSchema);
+const Location = mongoose.model("Location", locationSchema);
 
-module.exports = User;
+module.exports = Location;
