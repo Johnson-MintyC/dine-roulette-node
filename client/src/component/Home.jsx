@@ -25,7 +25,20 @@ const Home = () => {
 
     const handleSubmit = (event) => {
         event.preventDefault()
-        console.log(fields)
+        makeHardQueryCall()
+    }
+
+    //Hardcoded Test funcs and values
+    const makeHardQueryCall = async () => {
+        const randGeocode = "144.9617719,-37.817466"
+        const randRadius = "5000"
+        const randRestaurant = "catering.restaurant"
+        const randApiKey = process.env.REACT_APP_GEO_API
+        const randUrl = `https://api.geoapify.com/v2/places?categories=${randRestaurant}&filter=circle:${randGeocode},${randRadius}&bias=proximity:${randGeocode}&limit=50&apiKey=${randApiKey}`
+        const reponse = await fetch(randUrl)
+        const data = await reponse.json()
+        console.log(data)
+
     }
 
     return (
